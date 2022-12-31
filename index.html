@@ -40,7 +40,7 @@ body{
 
 .container .img{
     height: 40%;
-    background: url("https://cdn.pixabay.com/photo/2015/07/28/20/55/tools-864983_1280.jpg");
+    /* background: url("https://cdn.pixabay.com/photo/2015/07/28/20/55/tools-864983_1280.jpg"); */
     background-size: cover;
 }
 
@@ -113,7 +113,7 @@ body{
 <script>
 
     // selecting container id
-    const container = document.querySelector('#contaier');
+    const container = document.querySelector('#container');
     // request the data
     const request = new XMLHttpRequest();
     request.open('GET',"https://restcountries.com/v3.1/name/india");
@@ -124,11 +124,11 @@ body{
     request.addEventListener('load', function(){
         const [data] = JSON.parse(this.responseText)
         console.log(data.capital);
-        console.log(data);
+        console.log(data.flags);
 
         // Add Data into Html 
         const htmldata  = `
-        <div class="img">${data.flag}</div>
+        <div class="img"> <img src="${data.flag}">  </img></div>
     <div class="content">
         <h3>${data.capital}</h3>
         <p>${data.altSpellings}</p>
