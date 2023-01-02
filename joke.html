@@ -67,8 +67,10 @@ h3{
 <script>
 
     console.log("hello");
-    const jokes = document.querySelector("#joke");
-    const jokeBtn = document.querySelector("#jokeBtn");
+    const jokes = document.getElementById('joke');
+    const jokeBtn = document.querySelector('#jokeBtn');
+
+    
     
     const generatejokes = async () => {
         const setHeader = {
@@ -79,13 +81,19 @@ h3{
     
     
     const res = await fetch('https://icanhazdadjoke.com',setHeader);
+
     const data = await res.json();
+
     console.log(data.joke);
     console.log("hello world!");
+    
     jokes.innerHTML = data.joke;
 
     
 }
+
+jokeBtn.addEventListener('click', generatejokes);
+    generatejokes();
     
     
     
